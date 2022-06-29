@@ -10,8 +10,12 @@ services:
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    # volumes:
-    #   - .:/Rails-Docker // Its malfuctioning and sometime not able to create manifest.json required for webpack https://github.com/rails/webpacker/issues/2989
+    volumes:
+      - .:/Rails-Docker 
+    # This is required for development mode to reflect the changes without builiding again and again, https://vsupalov.com/rebuilding-docker-image-development/
+    # Its malfuctioning and sometime not able to create manifest.json required for webpack https://github.com/rails/webpacker/issues/2989
+    # solution : https://nickjanetakis.com/blog/dealing-with-lock-files-when-using-ruby-node-and-elixir-with-docker,
+    # command : docker-compose build, docker-compose run web bundle install, docker-compose up
     ports:
       - "3000:3000"
     depends_on:
