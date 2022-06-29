@@ -6,6 +6,7 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
+    @user = User.all    
     @friends = Friend.all
   end
 
