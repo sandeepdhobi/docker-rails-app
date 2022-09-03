@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    // Inspiration to add vscode deubbing for Dockerized rails App
+    // https://github.com/Microsoft/vscode-recipes/tree/master/debugging-Ruby-on-Rails#bonus
+    // https://github.com/petersonddb/debugging-rails-docker-vscode
+    // docker compose up => attach debugger of vscode by once debugger server up ( port 9000 ) => rails server gets started
+    "configurations": [
+        {
+            "name": "Attach to Docker",
+            "type": "Ruby",
+            "request": "attach",
+            "remotePort": "9000",
+            "remoteHost": "0.0.0.0",
+            "remoteWorkspaceRoot": "/",
+            "cwd": "${workspaceRoot}",
+            "showDebuggerOutput": true
+        }
+    ]
+}

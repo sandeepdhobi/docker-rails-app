@@ -9,7 +9,9 @@ services:
       - postgres:/var/lib/postgresql/data
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    # https://www.anycodings.com/1questions/3590138/update-docker-compose-do-i-need-to-re-build-image --> made changes just in docker-compose.yml so don't need to rebuild in some cases
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'" # uncomment if withoud debugger,
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rdebug-ide --debug --host 0.0.0.0 --port 9000 -- bin/rails s -p 3000 -b 0.0.0.0" #    // https://stackoverflow.com/questions/64428307/rdebug-ide-with-vscode-returns-cannot-load-such-file-app-app-rails-error
     volumes:
       - .:/Rails-Docker 
     # This is required for development mode to reflect the changes without builiding again and again, https://vsupalov.com/rebuilding-docker-image-development/
@@ -17,7 +19,8 @@ services:
     # solution : https://nickjanetakis.com/blog/dealing-with-lock-files-when-using-ruby-node-and-elixir-with-docker,
     # command : docker-compose build, docker-compose run web yarn install, docker-compose up
     ports:
-      - "3000:3000"
+      - 3000:3000
+      - 9000:9000
     depends_on:
       - db
 volumes:

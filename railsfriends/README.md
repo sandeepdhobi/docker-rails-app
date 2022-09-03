@@ -1,8 +1,24 @@
 # Friends List App
 
-Hello my name is John Elder and I work at Codemy.com
+## commmand to run to run this project
 
-This is my Ruby on Rails Friends List App!
+```
+  commands to run : docker-compose build, docker-compose run web yarn install, docker-compose up ==> to run the project ( check also comments of docker-compose.yml )
 
-Follow me at Codemy.com
+
+  795  cd Projects/Practice/docker_rails_app
+  796  ls
+  797  cd railsfriends
+  802  docker-compose build
+  803  docker-compose run web bundle install
+  804  docker compose up
+  805  docker-compose run web bundle install yarn install
+  807  docker compose up
+  813  docker container ls 
+  814  docker container ls -a
+  815  docker image prune
+  816  docker image ls 
+  817  docker compose stop
+  818  docker compose down
+```
 

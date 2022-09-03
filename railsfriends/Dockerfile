@@ -20,5 +20,4 @@ ADD . /Rails-Docker
 WORKDIR /Rails-Docker
 RUN yarn install
 RUN bundle install
-EXPOSE 3000
 CMD ["bash"]
