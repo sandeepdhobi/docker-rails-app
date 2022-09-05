@@ -23,9 +23,9 @@
 ```
 
 ## Helpful command of rails
-- bundle exec rails g scaffold relatives name:string relation:string => rails db:migrate
-- rails g migration add_user_id_to_relatives user_id:integer:index => rails db:migrate
-- rails c
-- 
+- `bundle exec rails g scaffold relatives name:string relation:string => rails db:migrate`
+- `rails g migration add_user_id_to_relatives user_id:integer:index => rails db:migrate`
+- `rails c`
+
 
 
