@@ -8,6 +8,7 @@ class FriendsController < ApplicationController
   def index
     @user = User.all    
     @friends = Friend.all
+    @relatives = Relative.all
   end
 
   # GET /friends/1
