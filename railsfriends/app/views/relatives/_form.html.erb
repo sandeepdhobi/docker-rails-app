@@ -1,0 +1,33 @@
+<%= form_with(model: relative, local: true) do |form| %>
+  <% if relative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relative.errors.count, "error") %> prohibited this relative from being saved:</h2>
+
+      <ul>
+        <% relative.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :relation %>
+    <%= form.text_field :relation %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id,id: :relative_user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <%= current_user.inspect %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

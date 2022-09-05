@@ -2,15 +2,6 @@
 
 <% if user_signed_in? %>
 
-<h1>ALL users</h1>
-      <% @user.each do |user| %>
-          <h2><%= user.email  %></h2>
-      <% end %>
-<h1>ALL friends</h1>
-      <% @friends.each do |friend| %>
-          <h2><%= friend.email  %></h2>
-      <% end %>
-
 
   <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
@@ -52,18 +43,59 @@
   <br>
 
   <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+
+<br>
+<br>
+
+
+<div class="alert alert-dark" role="alert">
+  Familiy Member of All User
+</div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Relation</th>
+        <th>User Id ( who created ) </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @relatives.each do |relative| %>
+        <tr>
+          <td>
+<%= link_to relative.name, relative %>
+
+
+          </td>
+          <td><%= relative.relation %></td>
+          <td><%= relative.user_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 <% else %>
 
 <h1>Hello World!</h1>
-This is my first Rails Webpage...
-
-<h1>ALL users</h1>
-      <% @user.each do |user| %>
-          <h2><%= user.email  %></h2>
-      <% end %>
-<h1>ALL friends</h1>
-      <% @friends.each do |friend| %>
-          <h2><%= friend.email  %></h2>
-      <% end %>
-
 <% end %>
+
+<div class="alert alert-dark" role="alert">
+  All Users Of System
+</div>
+<div class="list-group">
+  <% @user.each_with_index do |user, index| %>
+      <a href="#"  class="<%= index == 0 ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action" %>"><%= user.email  %></a>
+  <% end %>
+</div>
+
+<br><br>
+<div class="alert alert-dark" role="alert">
+  All Friends Of System
+</div>
+<div class="list-group">
+  <% @friends.each_with_index do |friend, index| %>
+      <a href="#" class="<%= index == 0 ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action" %>"><%= friend.email  %></a>
+  <% end %>
+</div>
