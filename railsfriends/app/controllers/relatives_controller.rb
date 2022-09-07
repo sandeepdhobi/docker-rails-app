@@ -1,7 +1,7 @@
 class RelativesController < ApplicationController
   before_action :set_relative, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [ :index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_relaive_user, only: [:edit, :update, :destroy]
 
   # GET /relatives or /relatives.json
   def index
@@ -22,7 +22,7 @@ class RelativesController < ApplicationController
   def edit
   end
 
-  def correct_user
+  def authenticate_relaive_user
     @relative = current_user.relatives.find_by(id: params[:id])
     redirect_to relatives_path, notice: "Not authorize to Edit or Delete" if @relative.nil?
   end
