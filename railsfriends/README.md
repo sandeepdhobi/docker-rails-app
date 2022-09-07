@@ -110,7 +110,8 @@ pp.save
 Desertcart::Env['BRAINTREE_MERCHANT_ID']
 exit
 Order.last.update_attributes(shipping_status: 'shipped');
-ap Product.last```
+ap Product.last
+```
 
 
 
