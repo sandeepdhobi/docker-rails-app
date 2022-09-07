@@ -211,3 +211,4 @@ belongs_to :secondary_status, :model => 'Status', :foreign_key => 'secondary_sta
 7. <%= h ... %>: Print the code and html escape the output: > becomes >. h() is actually a Ruby function, but called without parens, as Rubyists are apt to do.
 
 - [ ] https://betterexplained.com/articles/starting-ruby-on-rails-what-i-wish-i-knew/
+- [ ] Rails module https://medium.com/podiihq/ruby-modules-77b73c3c1054
