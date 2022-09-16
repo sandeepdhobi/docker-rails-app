@@ -33,10 +33,9 @@ User.last
 User.last.one_time_passwords
 User.last.one_time_passwords.last
 exit
-Desertcart::Env['BRAINTREE_MERCHANT_ID'] = ""
+DD::Env['MERCHANT_ID'] = ""
 exit
-Desertcart::Env['BRAINTREE_MERCHANT_ID'] = "32423432432HFSDFHSDHFSDHAFHHFHADSFHDSHAF"
-Desertcart::Env['PRIVATE_KEY']  = "ABCPricvateKey"
+DD::Env['PRIVATE_KEY']  = "ABCPricvateKey"
 exit
 Desertcart::Env['BRAINTREE_MERCHANT_ID'] = ""
 PaypalAccount.last
@@ -53,8 +52,8 @@ Checkout.last
 Checkout.last.paypal_account
 PaypalAccount.last
 BrainTree.last
-User.find_by(email: 'sandeep.dhobi@desertcart.ae').update(admin: true)
-User.find_by(email: 'sandeep.dhobi@desertcart.ae').update(password: 'Test@1234')
+User.find_by(email: '').update(admin: true)
+User.find_by(email: '').update(password: '34')
 PluaMembership.first
 PlusMembership.first
 PlusMembership.last.plus_membership_cycles
@@ -62,9 +61,7 @@ PlusMembership.last.plus_membership_cycles.last.paypal_account_transactions
 PlusMembership.last.plus_membership_cycles.first.paypal_account_transactions
 BrainTree.last
 Order.find(102).paypal_account_transactions
-Desertcart::Env['BRAINTREE_MERCHANT_ID']
-Desertcart::Env['BRAINTREE_PRIVATE_KEY']
-Desertcart::Env['BRAINTREE_PUBLIC_KEY']
+DD::Env['ABC_PUBLIC_KEY']
 CreditCard.last
 CreditCard.update(:active => true, :where => {:id => 23})
 CreditCard.update(23, :active => true)
@@ -107,7 +104,7 @@ st
 st.country_code = 'AE'
 st.save
 pp.save
-Desertcart::Env['BRAINTREE_MERCHANT_ID']
+DD::Env['MERCHANT_ID']
 exit
 Order.last.update_attributes(shipping_status: 'shipped');
 ap Product.last
